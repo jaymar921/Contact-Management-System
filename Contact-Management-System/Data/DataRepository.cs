@@ -1,6 +1,4 @@
-﻿using Contact_Management_System.Models;
-
-namespace Contact_Management_System.Data
+﻿namespace Contact_Management_System.Data
 {
     public class DataRepository
     {

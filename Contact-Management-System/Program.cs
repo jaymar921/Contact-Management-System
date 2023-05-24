@@ -18,7 +18,9 @@ builder.Services.AddCors(options =>
 });
 
 // Add a DBContext into the builder service that use and option to UseSqlite and point to the database file named SimpleContactManagementSystem
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=SimpleContactManagementSystem.db"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=SimpleContactManagementSystem"));
+// Add the DataRepository into the builder service as a scoped service
+builder.Services.AddScoped<DataRepository>();
 
 
 // Add services to the container.

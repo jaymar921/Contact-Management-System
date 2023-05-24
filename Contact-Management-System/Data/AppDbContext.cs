@@ -1,5 +1,4 @@
-﻿using Contact_Management_System.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Contact_Management_System.Data
 {
