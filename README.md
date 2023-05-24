@@ -1,5 +1,5 @@
 # Contact Management System
-- > By [Jayharron Mar Abejar](https://jayharronabejar.info) 😁
+- By [Jayharron Mar Abejar](https://jayharronabejar.info) 😁
 ## Basic CRUD operations
 
 ### Fields
@@ -8,10 +8,14 @@
 - Email
 - Contact No.
 ### Landing Page:
-- Table Listing
+##### Table Listing
+- Detail
+- Update
+- Delete/Remove
 - Search
 - Add
-- Update
-- Remove
+
 ### Details Page
 - Entry | Update Form
+
+UI Design Mockup [Figma Link](https://www.figma.com/file/2nCh6LhE1AuRX4FbOyE6CW/SCMS?type=design&node-id=0%3A1&t=seI1UG01ysWnRlIK-1)
