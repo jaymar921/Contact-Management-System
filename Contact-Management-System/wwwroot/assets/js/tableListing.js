@@ -76,7 +76,7 @@ document.querySelector('#contactNumber').addEventListener('input', ({target:{val
     }
 });
 
-
+let cachedContactData = [];
 
 const grabAllContacts = (search = '') => {
     document.querySelector('#splashScreen').classList.remove('hidden');
@@ -126,6 +126,8 @@ const updateTableData = (data, search = '') => {
     if (search !== '') {
         contactData = contactData.filter(contact => contact.Name.toLowerCase().includes(search.toLowerCase()))
     }
+
+    cachedContactData = contactData;
 
     document.querySelector('#result-count').innerHTML = `Found: ${contactData.length} result${contactData.length>1?'s':''}`;
     contactData.forEach(contact => {
@@ -201,4 +203,8 @@ const searchContact = () => {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function downloadCSV() {
+    exportCSV(cachedContactData, 'contacts.csv');
 }

@@ -112,6 +112,9 @@
                     <div class="group padl-30">
                         <p id="result-count">Found: 4 result(s)</p>
                     </div>
+                    <div class="group padl-30">
+                        <button class="btn" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSV</button>
+                    </div>
                     <div class="group right">
                         <div class="searchContainer">
                             <input id="searchInput" class="searchInput" type="search" placeholder="Search...">
@@ -121,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- TABLE -->
                 <div class="tableContainer">
                     <div>
@@ -149,9 +152,13 @@
                         </table>
                     </div>
                 </div>
+
+                
+                
             </div>
         </div>
     </div>
     <script src="./assets/js/tableListing.js"></script>
+    <script src="./assets/js/util.js"></script>
 </body>
 </html>
