@@ -1,0 +1,492 @@
+@font-face {
+    font-family: Inter-Bold;
+    src: url("/assets/Fonts/Inter-Bold.ttf");
+  }
+
+:root{
+  --redFontColor: #5E1313;
+  --greyBg: #DDDDDD;
+  --darkGrey: #181818;
+  --greenFS: #dcffe4;
+  --white: #FFFFFF;
+  --backgroundCol : #dbdbdb;
+}
+
+body{
+    margin: 0;
+    background-color: var(--backgroundCol);
+}
+
+.navigation{
+    position: fixed;
+    background-color: var(--white);
+    width: 100%;
+    height: 70px;
+    top: 0;
+}
+
+.navigation .title{
+    position: relative;
+    left: 350px;
+}
+
+.navigation .title h1{
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #481111;
+    padding: 15px 0px 0px 30px;
+    margin: 0;
+}
+
+.dashboard{
+    position: fixed;
+    width: 350px;
+    height: 100%;
+    background-color: var(--white);
+    top: 0;
+    border-radius: 0 30px 30px 0;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.dashboard .logo{
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.dashboard .logo img{
+    width: 100%;
+}
+.dashboard .buttonGroups{
+    position: relative;
+    top: 50px;
+}
+.dashboard .buttonGroups .dashboardButton{
+    position: relative;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    outline: none;
+    border: none;
+}
+
+.dashboard .buttonGroups .dashboardButton .subgroup{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard .buttonGroups .dashboardButton .subgroup img{
+    position: relative;
+    height: 25px;
+}
+
+.dashboard .buttonGroups .dashboardButton .subgroup a{
+    position: relative;
+    text-align: left;
+    font-family: Inter-Bold;
+    font-size: 24px;
+    height: 24px;
+    left: 5px;
+}
+.buttonActive{
+    background-color: #c9c9c9;
+}
+.dashboardButton:hover{
+    cursor: pointer;
+    background-color: #c9c9c9;
+}
+
+/*
+    CONTENTS
+*/
+
+.container{
+    position: absolute;
+    top: 70px;
+    width: calc(100% - 350px);
+    min-width: 1000px;
+    left: 350px;
+    height: calc(100% - 70px);
+    
+}
+
+.bgfs img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+}
+
+.bgfs{
+    overflow: hidden;
+}
+
+.innerContainer{
+    position: relative;
+    top: 0;
+    padding: 80px;
+}
+
+.pageTitle{
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: #434343;
+    padding: 0;
+}
+
+.pageTitle h1{
+    margin: 0;
+}
+
+.btnGrey{
+    border: none;
+    align-items: center;
+    display: flex;
+    background-color: #b3b3b3;
+    padding: 5px 20px 5px 20px;
+}
+
+.btn{
+    width: 200px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+}
+
+.btnGroup{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.right{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btnGrey:hover{
+    background-color: #f2f2f2 ;
+    cursor: pointer;
+}
+
+.btnGrey p{
+    position: relative;
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btnGrey img{
+    position: relative;
+    height: 35px;
+}
+
+.itemGroup{
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+}
+
+.group{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.group p{
+    margin: 0;
+    padding-right: 15px;
+    color: var(--redFontColor);
+}
+
+.padl-30{
+    padding-left: 30px;
+}
+
+.group select{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.searchInput{
+    position: relative;
+    width: 300px;
+    height: 40px;
+    border-radius: 15px 0px 0px 15px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+.searchContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchlogo{
+    position: relative;
+    height: 40px;
+    width: 50px;
+    background-color: white;
+    margin-left: 3px;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.searchContainer .searchlogo button{
+    position: relative;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+}
+
+.searchContainer .searchlogo button{
+    position: relative;
+    background-color: rgba(0,0,0,0);
+    width: 50px;
+    height: 40px;
+}
+
+.searchContainer .searchlogo button:hover{
+    position: relative;
+    border: 0;
+    cursor: pointer;
+}
+
+.searchContainer .searchlogo img{
+    position: relative;
+    height: 30px;
+}
+
+.tableContainer{
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 20px;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.tableContainer div{
+    overflow-y:scroll;
+    height: 100%;
+}
+
+table{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border-collapse: collapse;
+}
+
+.customheader{
+    position: absolute;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+}
+
+table thead{
+    color: var(--redFontColor);
+}
+
+table tbody{
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+table tbody tr td, thead tr th{
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+table tbody tr:hover{
+    background-color: #F6EEEE;
+}
+
+.actionCol{
+    position: relative;
+    width: 100px;
+}
+
+.actionCol a{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    padding: 10px;
+}
+
+/*
+    Splash Screens and Modals
+*/
+
+.splashScreen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.splashScreen .innerSplash{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal h1{
+    font-family: 'Poppins', sans-serif;
+    color: var(--redFontColor);
+    padding: 0;
+    margin: 0;
+}
+
+.innerModal{
+    position: relative;
+    width: 500px;
+    height: 525px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.innerModal .modalBody{
+    position: relative;
+    width: 450px;
+}
+
+.innerModal .modalBody form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+}
+
+.innerModal .modalBody form .formGroup{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    overflow: hidden;
+}
+
+
+.innerModal .modalBody form .formGroup input{
+    position: relative;
+    width: 450px;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    padding: 5px;
+    border: none;
+    background-color: #D9D9D9;
+    outline: none;
+}
+
+/*
+    UTILS
+*/
+
+.blur{
+    filter: blur(2px);
+}
+  
+.hidden{
+    display: none;
+    opacity: 0;
+}
+.centerdiv{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.w300, .w200, .w100{
+    position: relative;
+    position: relative;
+    min-width: 300px;
+    width: 300px;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 20px;
+}
+
+.w200{
+    min-width: 200px;
+    width: 200px;
+    max-width: 200px;
+}
+
+.w100{
+    min-width: 100px;
+    width: 100px;
+    max-width: 100px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
+
+a:hover{
+    cursor: pointer;
+}
+

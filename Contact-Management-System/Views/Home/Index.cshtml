@@ -1,8 +1,157 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@Model ContactModel
+@{
+    Layout = "";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management System</title>
+    <link rel="stylesheet" href="./assets/css/tableListing.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/loadingCss.css" type="text/css">
+    <script src="https://kit.fontawesome.com/55a8472328.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bgfs">
+        <img src="/assets/Images/arrowsbg.png" alt="bgfs">
+    </div>
+    <div id="splashScreen" class="splashScreen">
+        <div class="innerSplash">
+            <img src="./assets/images/FS-logo.png" alt="FullScale Logo">
+            <br><br>
+            <div class="spinner-box">
+                <div class="pulse-container">
+                    <div class="pulse-bubble pulse-bubble-1"></div>
+                    <div class="pulse-bubble pulse-bubble-2"></div>
+                    <div class="pulse-bubble pulse-bubble-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addContactModal" class="modal hidden">
+        <div class="innerModal">
+            <h1>Add Contact</h1>
+            <div class="modalBody">
+                <form method="post" action="/AddContact">
+                    <div class="formGroup">
+                        <label for="name">Name <i id="nameindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                        <input type="text" id="contactname" name="name" placeholder="Nax Joe" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="address">Address <i id="addressindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                        <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="email">Email <i id="emailindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                        <input type="email" id="email" name="email" placeholder="someone@email.com" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="contactNumber">Contact Number <i id="contactindicator" style="color:green" class="fa-solid hidden"></i></label>
+                        <input type="tel" id="contactNumber" name="ContactNo" placeholder="Enter contact number" minlength="7" required>
+                    </div>
+                    <br>
+                    <div class="btnGroup">
+                        <button type="submit" class="btn"><i class="fa-solid fa-user-plus"></i> Add Contact</button>
+                        <button type="button" onclick="closeAddContactModal()" class="btn"><i class="fa-solid fa-xmark"></i> Close</button>
+                    </div>
+                </form>
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        </div>
+    </div>
+
+    <div class="mainPage">
+
+        <div class="navigation">
+            <div class="title">
+                <h1>Contact Management System</h1>
+            </div>
+        </div>
+        <div class="dashboard">
+            <div class="logo">
+                <img src="./assets/images/FS-Logo-1.png" alt="logo">
+                <p>Dashboard</p>
+            </div>
+            <div class="buttonGroups">
+                <button class="dashboardButton buttonActive">
+                    <div class="subgroup">
+                        <img src="./assets/images/dashboard.png" alt="dashboard">
+                        <a> Table Listing</a>
+                    </div>
+                </button>
+                <button class="dashboardButton">
+                    <div class="subgroup">
+                        <img src="./assets/images/info.png" alt="info">
+                        <a> Details</a>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="innerContainer">
+
+                <!-- PAGE TITLE -->
+                <div class="pageTitle">
+                    <h1>Table Listing</h1>
+                    <button onclick="openAddContactModal()" class="btnGrey right"><img src="./assets/images/add-user.png" alt="dashboard"> <p>Add Contact</p></button>
+                </div>
+
+                <!-- GROUP ITEMS -->
+                <div class="itemGroup">
+                    <div class="group">
+                        <p>Sort:</p>
+                        <select id="sortingOption">
+                            <option value="asc">Ascending</option>
+                            <option value="dsc">Descending</option>
+                        </select>
+                    </div>
+                    <div class="group padl-30">
+                        <p id="result-count">Found: 4 result(s)</p>
+                    </div>
+                    <div class="group right">
+                        <div class="searchContainer">
+                            <input id="searchInput" class="searchInput" type="search" placeholder="Search...">
+                            <div class="searchlogo">
+                                <button onclick="searchContact()"><img src="./assets/images/find.png" alt="dashboard"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="tableContainer">
+                    <div>
+                        <table>
+                            <thead>
+                            <th class="w300">Name</th>
+                            <th class="w200">Address</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Actions</th>
+                            <th class="customheader"><hr></th>
+                            </thead>
+                            <tbody id="tableData-contacts">
+                                <!-- JAVASCRIPT WILL POPULATE THIS AREA -->
+                                <tr>
+                                    <td class="w300">John Doe</td>
+                                    <td class="w200">03</td>
+                                    <td>test@email.com</td>
+                                    <td>1234567890</td>
+                                    <td class="actionCol w100"><a><i class="fa-solid fa-pen-to-square"></i></a><a><i class="fa-solid fa-trash"></i></a></td>
+                                    <td><!-- hidden col --></td>
+                                <tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/tableListing.js"></script>
+</body>
+</html>

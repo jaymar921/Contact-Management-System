@@ -17,6 +17,7 @@ namespace Contact_Management_System.Controllers
         // create a variable of type JsonSerializerOptions named jsonSerializer and set WriteIndented to true
         private JsonSerializerOptions jsonSerializer = new JsonSerializerOptions { WriteIndented = true };
 
+        // create a readonly variable named 'API_KEY' that is of type string and assign it a value of "api-vm3875y285982m35mn45b674"
         private readonly string API_KEY = "api-vm3875y285982m35mn45b674";
 
 

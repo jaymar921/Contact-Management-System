@@ -10,5 +10,15 @@ namespace Contact_Management_System.Utility
         {
             return new Contact { ID = model.ID, Address = model.Address, ContactNo = model.ContactNo, Email = model.Email, Name = model.Name };
         }
+
+        public static string Capitalize(this string source)
+        {
+            string word = string.Empty;
+            foreach(var item in source.Split(' '))
+            {
+                word += item[0].ToString().ToUpper() + item.Substring(1).ToLowerInvariant() + " ";
+            }
+            return word.Trim();
+        }
     }
 }
