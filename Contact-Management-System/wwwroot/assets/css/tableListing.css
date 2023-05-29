@@ -1,23 +1,23 @@
 @font-face {
     font-family: Inter-Bold;
     src: url("/assets/Fonts/Inter-Bold.ttf");
-  }
-
-:root{
-  --redFontColor: #5E1313;
-  --greyBg: #DDDDDD;
-  --darkGrey: #181818;
-  --greenFS: #dcffe4;
-  --white: #FFFFFF;
-  --backgroundCol : #dbdbdb;
 }
 
-body{
+:root {
+    --redFontColor: #5E1313;
+    --greyBg: #DDDDDD;
+    --darkGrey: #181818;
+    --greenFS: #dcffe4;
+    --white: #FFFFFF;
+    --backgroundCol: #dbdbdb;
+}
+
+body {
     margin: 0;
     background-color: var(--backgroundCol);
 }
 
-.navigation{
+.navigation {
     position: fixed;
     background-color: var(--white);
     width: 100%;
@@ -25,21 +25,21 @@ body{
     top: 0;
 }
 
-.navigation .title{
-    position: relative;
-    left: 350px;
-}
+    .navigation .title {
+        position: relative;
+        left: 350px;
+    }
 
-.navigation .title h1{
-    position: relative;
-    font-family: 'Poppins', sans-serif;
-    font-size: 36px;
-    color: #481111;
-    padding: 15px 0px 0px 30px;
-    margin: 0;
-}
+        .navigation .title h1 {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            color: #481111;
+            padding: 15px 0px 0px 30px;
+            margin: 0;
+        }
 
-.dashboard{
+.dashboard {
     position: fixed;
     width: 350px;
     height: 100%;
@@ -49,59 +49,63 @@ body{
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-.dashboard .logo{
-    position: relative;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    text-align: center;
-    font-size: 20px;
-}
+    .dashboard .logo {
+        position: relative;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        text-align: center;
+        font-size: 20px;
+    }
 
-.dashboard .logo img{
-    width: 100%;
-}
-.dashboard .buttonGroups{
-    position: relative;
-    top: 50px;
-}
-.dashboard .buttonGroups .dashboardButton{
-    position: relative;
-    height: 55px;
-    width: 100%;
-    display: flex;
-    outline: none;
-    border: none;
-}
+        .dashboard .logo img {
+            width: 100%;
+        }
 
-.dashboard .buttonGroups .dashboardButton .subgroup{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 55%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
+    .dashboard .buttonGroups {
+        position: relative;
+        top: 50px;
+    }
 
-.dashboard .buttonGroups .dashboardButton .subgroup img{
-    position: relative;
-    height: 25px;
-}
+        .dashboard .buttonGroups .dashboardButton {
+            position: relative;
+            height: 55px;
+            width: 100%;
+            display: flex;
+            outline: none;
+            border: none;
+        }
 
-.dashboard .buttonGroups .dashboardButton .subgroup a{
-    position: relative;
-    text-align: left;
-    font-family: Inter-Bold;
-    font-size: 24px;
-    height: 24px;
-    left: 5px;
-}
-.buttonActive{
+            .dashboard .buttonGroups .dashboardButton .subgroup {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 55%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+                .dashboard .buttonGroups .dashboardButton .subgroup img {
+                    position: relative;
+                    height: 25px;
+                }
+
+                .dashboard .buttonGroups .dashboardButton .subgroup a {
+                    position: relative;
+                    text-align: left;
+                    font-family: Inter-Bold;
+                    font-size: 24px;
+                    height: 24px;
+                    left: 5px;
+                }
+
+.buttonActive {
     background-color: #c9c9c9;
 }
-.dashboardButton:hover{
+
+.dashboardButton:hover {
     cursor: pointer;
     background-color: #c9c9c9;
 }
@@ -110,17 +114,16 @@ body{
     CONTENTS
 */
 
-.container{
+.container {
     position: absolute;
     top: 70px;
     width: calc(100% - 350px);
-    min-width: 1200px;
+    min-width: 1000px;
     left: 350px;
     height: calc(100% - 70px);
-    
 }
 
-.bgfs img{
+.bgfs img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -129,28 +132,28 @@ body{
     filter: blur(2px);
 }
 
-.bgfs{
+.bgfs {
     overflow: hidden;
 }
 
-.innerContainer{
+.innerContainer {
     position: relative;
     top: 0;
     padding: 80px;
 }
 
-.pageTitle{
+.pageTitle {
     position: relative;
     font-family: 'Poppins', sans-serif;
     color: #434343;
     padding: 0;
 }
 
-.pageTitle h1{
-    margin: 0;
-}
+    .pageTitle h1 {
+        margin: 0;
+    }
 
-.btnGrey{
+.btnGrey {
     border: none;
     align-items: center;
     display: flex;
@@ -158,76 +161,80 @@ body{
     padding: 5px 20px 5px 20px;
 }
 
-.btn{
+.btn {
     width: 200px;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     padding: 10px;
 }
 
-.btnGroup{
+.btn:hover{
+    cursor: pointer;
+    color: rgb(55, 55, 55);
+}
+
+.btnGroup {
     position: relative;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.right{
+.right {
     position: absolute;
     right: 0;
     top: 0;
 }
 
-.btnGrey:hover{
-    background-color: #f2f2f2 ;
+.btnGrey:hover {
+    background-color: #f2f2f2;
     cursor: pointer;
 }
 
-.btnGrey p{
+.btnGrey p {
     position: relative;
     margin: 0;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
 }
 
-.btnGrey img{
+.btnGrey img {
     position: relative;
     height: 35px;
 }
 
-.itemGroup{
+.itemGroup {
     position: relative;
     margin-top: 20px;
     display: flex;
 }
 
-.group{
+.group {
     display: flex;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
 }
 
-.group p{
-    margin: 0;
-    padding: 10px;
-    padding-right: 15px;
-    color: var(--redFontColor);
-}
+    .group p {
+        margin: 0;
+        padding-right: 15px;
+        color: var(--redFontColor);
+    }
 
-.padl-30{
+.padl-30 {
     padding-left: 30px;
 }
 
-.group select{
+.group select {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
     border-radius: 5px;
 }
 
-.searchInput{
+.searchInput {
     position: relative;
-    width: 200px;
+    width: 300px;
     height: 40px;
     border-radius: 15px 0px 0px 15px;
     border: none;
@@ -237,14 +244,14 @@ body{
     font-size: 20px;
 }
 
-.searchContainer{
+.searchContainer {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.searchlogo{
+.searchlogo {
     position: relative;
     height: 40px;
     width: 50px;
@@ -253,31 +260,31 @@ body{
     border-radius: 0px 15px 15px 0px;
 }
 
-.searchContainer .searchlogo button{
+.searchContainer .searchlogo button {
     position: relative;
     border: 0;
     background-color: rgba(0,0,0,0);
 }
 
-.searchContainer .searchlogo button{
+.searchContainer .searchlogo button {
     position: relative;
     background-color: rgba(0,0,0,0);
     width: 50px;
     height: 40px;
 }
 
-.searchContainer .searchlogo button:hover{
-    position: relative;
-    border: 0;
-    cursor: pointer;
-}
+    .searchContainer .searchlogo button:hover {
+        position: relative;
+        border: 0;
+        cursor: pointer;
+    }
 
-.searchContainer .searchlogo img{
+.searchContainer .searchlogo img {
     position: relative;
     height: 30px;
 }
 
-.tableContainer{
+.tableContainer {
     position: relative;
     width: 100%;
     margin-top: 30px;
@@ -289,12 +296,28 @@ body{
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-.tableContainer div{
-    overflow-y:scroll;
+.detailsContainer {
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    display: block;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+    .detailsContainer div {
+        width: 100%;
+    }
+
+.tableContainer div {
+    overflow-y: scroll;
     height: 100%;
 }
 
-table{
+table {
     position: relative;
     width: 100%;
     padding: 20px;
@@ -303,7 +326,7 @@ table{
     border-collapse: collapse;
 }
 
-.customheader{
+.customheader {
     position: absolute;
     width: 95%;
     left: 50%;
@@ -311,66 +334,42 @@ table{
     top: 30px;
 }
 
-table thead{
+table .header {
     color: var(--redFontColor);
 }
 
-table tbody{
+table tbody {
     position: relative;
     text-align: center;
     margin-top: 20px;
-    
 }
 
-table tbody tr td, thead tr th{
+table tbody tr td, .header tr th {
     padding: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-table tbody tr:hover{
+table tbody .hoverable:hover {
     background-color: #F6EEEE;
 }
 
-.actionCol{
+.actionCol {
     position: relative;
     width: 100px;
 }
 
-.actionCol a{
-    font-family: 'Poppins', sans-serif;
-    font-size: 25px;
-    padding: 10px;
-}
+    .actionCol a {
+        font-family: 'Poppins', sans-serif;
+        font-size: 25px;
+        padding: 10px;
+    }
 
 /*
     Splash Screens and Modals
 */
 
-.splashScreen{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-}
-
-.splashScreen .innerSplash{
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background-color: white;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.modal{
+.splashScreen {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -381,14 +380,38 @@ table tbody tr:hover{
     z-index: 100;
 }
 
-.modal h1{
-    font-family: 'Poppins', sans-serif;
-    color: var(--redFontColor);
-    padding: 0;
-    margin: 0;
+    .splashScreen .innerSplash {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
 }
 
-.innerModal{
+    .modal h1 {
+        font-family: 'Poppins', sans-serif;
+        color: var(--redFontColor);
+        padding: 0;
+        margin: 0;
+    }
+
+.innerModal {
     position: relative;
     width: 500px;
     height: 525px;
@@ -400,58 +423,135 @@ table tbody tr:hover{
     flex-direction: column;
 }
 
-.innerModal .modalBody{
-    position: relative;
-    width: 450px;
-}
+    .innerModal .modalBody {
+        position: relative;
+        width: 450px;
+    }
 
-.innerModal .modalBody form{
+        .innerModal .modalBody form, form {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+        }
+
+            .innerModal .modalBody form .formGroup, .formGroup {
+                position: relative;
+                width: 100%;
+                margin-top: 10px;
+                display: block;
+                overflow: hidden;
+            }
+
+
+                .innerModal .modalBody form .formGroup input, .formGroup input {
+                    position: relative;
+                    width: 450px;
+                    align-items: center;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 24px;
+                    padding: 5px;
+                    border: none;
+                    background-color: #D9D9D9;
+                    outline: none;
+                }
+
+.form-container {
     position: relative;
     width: 100%;
     height: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-}
-
-.innerModal .modalBody form .formGroup{
-    position: relative;
-    width: 100%;
-    margin-top: 10px;
     display: block;
-    overflow: hidden;
-}
-
-
-.innerModal .modalBody form .formGroup input{
-    position: relative;
-    width: 450px;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    padding: 5px;
-    border: none;
-    background-color: #D9D9D9;
-    outline: none;
+    justify-content: center;
 }
+
+    .form-container .pageTitle h1 {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .form-container form {
+        position: relative;
+        width: 80%;
+        height: 100%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        left: 50%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        transform: translateX(-50%);
+    }
+
+        .form-container form .formGroup input {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+
+#map {
+    height: 200px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+
+.uploadUI {
+    position: relative;
+    background-color: white;
+    width: 500px;
+    height: auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+    .uploadUI h1 {
+        padding: 20px;
+    }
+
+.uploadDropBox {
+    position: relative;
+    width: 80%;
+    height: 200px;
+    background-color: var(--greenFS);
+    border: 1px solid green;
+    text-align: center;
+    align-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .uploadDropBox p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
 
 /*
     UTILS
 */
 
-.blur{
+.blur {
     filter: blur(2px);
 }
-  
-.hidden{
+
+.hidden {
     display: none;
     opacity: 0;
 }
-.centerdiv{
+
+.centerdiv {
     left: 50%;
     transform: translateX(-50%);
 }
 
-.w300, .w200, .w100{
+.w300, .w200, .w100 {
     position: relative;
     position: relative;
     min-width: 300px;
@@ -463,13 +563,13 @@ table tbody tr:hover{
     padding: 20px;
 }
 
-.w200{
+.w200 {
     min-width: 200px;
     width: 200px;
     max-width: 200px;
 }
 
-.w100{
+.w100 {
     min-width: 100px;
     width: 100px;
     max-width: 100px;
@@ -478,16 +578,11 @@ table tbody tr:hover{
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
--moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
-
-a:hover{
-    cursor: pointer;
-}
-

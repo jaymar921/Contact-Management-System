@@ -1,0 +1,162 @@
+﻿@model ContactModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - Contact Management System</title>
+    <link rel="stylesheet" href="./assets/css/tableListing.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/loadingCss.css" type="text/css">
+    <script src="https://kit.fontawesome.com/55a8472328.js" crossorigin="anonymous"></script>
+
+    <!-- LEAFLET CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+<body>
+    <div class="bgfs">
+        <img src="/assets/Images/arrowsbg.png" alt="bgfs">
+    </div>
+    @if (TempData["message"] != null)
+    {
+        <div id="splashScreen" class="splashScreen">
+            <div class="innerSplash">
+                <img src="./assets/images/FS-logo.png" alt="FullScale Logo">
+                <br><br>
+                <p style="font-size:18px;">@TempData["message"]</p>
+            </div>
+        </div>
+    }
+    
+
+
+    <div class="mainPage">
+
+        <div class="navigation">
+            <div class="title">
+                <h1>Contact Management System</h1>
+            </div>
+        </div>
+        <div class="dashboard">
+            <div class="logo">
+                <img src="./assets/images/FS-Logo-1.png" alt="logo">
+                <p>Dashboard</p>
+            </div>
+            <div class="buttonGroups">
+                <button class="dashboardButton" onclick="returnHome()">
+                    <div class="subgroup">
+                        <img src="./assets/images/dashboard.png" alt="dashboard">
+                        <a> Table Listing</a>
+                    </div>
+                </button>
+                <button class="dashboardButton buttonActive">
+                    <div class="subgroup">
+                        <img src="./assets/images/info.png" alt="info">
+                        <a> Details</a>
+                    </div>
+                </button>
+            </div>
+            <footer style="position: absolute;bottom: 0;width: 350px;">
+                <p style="color: grey; text-align: center;">By <a style="color: darkgrey;" href="https://jayharronabejar.info/" target="_blank">JayMar921</a></p>
+            </footer>
+        </div>
+
+        <div class="container">
+
+            <div class="innerContainer">
+
+                <div class="detailsContainer">
+                    <div class="form-container">
+                        <div class="pageTitle">
+                            <h1>Details</h1>
+                        </div>
+                        <form method="post" action="/UpdateContact">
+                            <input type="number" id="id" asp-for="ID" minlength="3" value="@Model.ID" hidden />
+                            <div class="formGroup">
+                                <label for="name">Name <i id="nameindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                                <input type="text" id="contactname" asp-for="Name" placeholder="Nax Joe" value="@Model.Name" minlength="3" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="address">Address <i id="addressindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                                <input type="text" id="address" asp-for="Address" placeholder="Enter your address" value="@Model.Address" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="email">Email <i id="emailindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
+                                <input type="email" id="email" asp-for="Email" placeholder="someone@email.com" value="@Model.Email">
+                            </div>
+                            <div class="formGroup">
+                                <label for="contactNumber">Contact Number <i id="contactindicator" style="color:green" class="fa-solid hidden"></i></label>
+                                <input type="tel" id="contactNumber" asp-for="ContactNo" placeholder="Enter contact number" minlength="7" value="@Model.ContactNo" required>
+                            </div>
+                            <div class="formGroup">
+                                <div id="map"></div>
+                                <p style="font-size: 11px; text-align: center; color: grey;">The map may not provide an accurate result but it can be used as reference</p>
+                            </div>
+                            <div class="btnGroup">
+                                <button type="submit" class="btn"><i class="fa-solid fa-pen-to-square"></i>Update Contact</button>
+                                <button type="button" onclick="returnHome()" class="btn"><i class="fa-solid fa-rotate-left"></i> Back</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/util.js"></script>
+    <script>
+        
+        
+        var requestOptions = {
+        method: 'GET',
+        };
+        let addr = "@Model.Address";
+
+        fetch(`https://api.geoapify.com/v1/geocode/search?text=${addr}&apiKey=4713b36865964caeb394ce30d1efe720`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+        let latLong = [result.features[0].properties.lat, result.features[0].properties.lon];
+        var map = L.map('map').setView([...latLong], 10);
+
+        // disable zoom control
+        map.zoomControl.remove();
+        // disable dragging
+        map.dragging.disable();
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 12,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var circle = L.circle([...latLong], {
+            color: 'green',
+            fillColor: 'green',
+            fillOpacity: 0.2,
+            radius: 3500
+        }).addTo(map);
+        })
+        .catch(error => console.log('error', error));
+        
+        function returnHome() {
+            window.location.href = "/";
+        }
+
+        setTimeout(() => {
+            runFormValidator();
+        }, 200)
+    </script>
+
+
+</body>
+</html>
+

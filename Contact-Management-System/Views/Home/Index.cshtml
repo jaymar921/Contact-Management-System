@@ -37,7 +37,7 @@
                 <form method="post" action="/AddContact">
                     <div class="formGroup">
                         <label for="name">Name <i id="nameindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
-                        <input type="text" id="contactname" name="name" placeholder="Nax Joe" required>
+                        <input type="text" id="contactname" name="name" placeholder="Nax Joe" minlength="3" required>
                     </div>
                     <div class="formGroup">
                         <label for="address">Address <i id="addressindicator" style="color:green" class="fa-solid fa-check hidden"></i></label>
@@ -61,6 +61,27 @@
 
         </div>
     </div>
+
+    <!-- IMPORT JSON FILE UI -->
+    <div id="uploadJSONUI" style="z-index:99;" class="modal hidden">
+        <div class="uploadUI">
+            <h1>Import Contacts</h1>
+            <div class="uploadDropBox" title='format
+[
+    {
+        "Name":"Nax Joe",
+        "Address": "Street 123, City, Country",
+        "Email": "someone@email.com",
+        "ContactNo": "0912345678"
+    }
+]' id="drop_zone">
+                <p>Drag .json files here</p>
+            </div>
+            <p id="uploadUIInfo" style="font-size: 20px;">Drag a file inside the green box</p>
+            <button class="btn" onclick="startImport()" style="width: 100px; margin-bottom: 20px;">Import</button>
+        </div>
+    </div>
+
 
     <div class="mainPage">
 
@@ -88,6 +109,9 @@
                     </div>
                 </button>
             </div>
+            <footer style="position: absolute;bottom: 0;width: 350px;">
+                <p style="color: grey; text-align: center;">By <a style="color: darkgrey;" href="https://jayharronabejar.info/" target="_blank">JayMar921</a></p>
+            </footer>
         </div>
 
         <div class="container">
@@ -99,22 +123,26 @@
                     <h1>Table Listing</h1>
                     <button onclick="openAddContactModal()" class="btnGrey right"><img src="./assets/images/add-user.png" alt="dashboard"> <p>Add Contact</p></button>
                 </div>
-
+                
                 <!-- GROUP ITEMS -->
                 <div class="itemGroup">
                     <div class="group">
-                        <p>Sort:</p>
+                        <p style="padding-top: 8px">Sort:</p>
                         <select id="sortingOption">
                             <option value="asc">Ascending</option>
                             <option value="dsc">Descending</option>
                         </select>
                     </div>
                     <div class="group padl-30">
-                        <p id="result-count">Found: 4 result(s)</p>
+                        <p id="result-count" style="padding-top: 8px">Found: 4 result(s)</p>
                     </div>
                     <div class="group padl-30">
-                        <button class="btn" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSV</button>
+                        <button class="btn" style="width: 60px;" onclick="uploadJSON()"><i class="fa-solid fa-upload"></i></button>
                     </div>
+                    <div class="group padl-30">
+                        <button class="btn" style="width: 100px;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSV</button>
+                    </div>
+                    
                     <div class="group right">
                         <div class="searchContainer">
                             <input id="searchInput" class="searchInput" type="search" placeholder="Search...">
@@ -129,14 +157,14 @@
                 <div class="tableContainer">
                     <div>
                         <table>
-                            <thead>
-                            <th class="w300">Name</th>
-                            <th class="w200">Address</th>
-                            <th>Email</th>
-                            <th>Contact Number</th>
-                            <th>Actions</th>
-                            <th class="customheader"><hr></th>
-                            </thead>
+                            <tr class="header">
+                                <th class="w300">Name</th>
+                                <th class="w200">Address</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                                <th>Actions</th>
+                                <th class="customheader"><hr></th>
+                            </tr>
                             <tbody id="tableData-contacts">
                                 <!-- JAVASCRIPT WILL POPULATE THIS AREA -->
                                 <tr>

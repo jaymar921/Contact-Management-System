@@ -43,7 +43,7 @@ namespace Contact_Management_System.Controllers
         }
 
         [HttpPost]
-        public JsonResult UploadContact(ContactModel model)
+        public async Task<JsonResult> UploadContact(List<ContactModel> model)
         {
             Request.Headers.TryGetValue("api-key", out var apikey);
             // if api key is not valid return a json result with a message "Invalid API Key"
@@ -52,7 +52,15 @@ namespace Contact_Management_System.Controllers
                 return new JsonResult(new { Status = 401, message = "Invalid API Key" }, jsonSerializer);
             }
 
-            dataRepository.AddEntry(model.ParseToContact());
+            List<Contact> contacts = new List<Contact>();
+            foreach (var item in model)
+            {
+                contacts.Add(item.ParseToContact());
+            }
+
+            // e dasok tanan
+
+            await dataRepository.AddEntriesAsync(contacts);
 
             // return a json result with a message "Contact uploaded successfully"
             return new JsonResult(new { Status = 200, message = "Contact uploaded successfully" }, jsonSerializer);

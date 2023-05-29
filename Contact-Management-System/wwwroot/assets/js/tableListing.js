@@ -2,7 +2,6 @@ const api_key = 'api-vm3875y285982m35mn45b674';
 
 const closeAddContactModal = () => {
     document.getElementById('addContactModal').classList.add('hidden');
-    console.log(clearAddContactModal());
 }
 
 const openAddContactModal = () => {
@@ -19,62 +18,7 @@ const clearAddContactModal = () => {
     return data;
 }
 
-document.querySelector('#contactname').addEventListener('input', ({target:{value}}) => {
-    if(value !== '') {
-        document.querySelector('#nameindicator').classList.remove('hidden');
-    }else{
-        document.querySelector('#nameindicator').classList.add('hidden');
-    }
-});
 
-document.querySelector('#address').addEventListener('input', ({target:{value}}) => {
-    if(value.length > 5) {
-        document.querySelector('#addressindicator').classList.remove('hidden');
-    }else{
-        document.querySelector('#addressindicator').classList.add('hidden');
-    }
-});
-
-document.querySelector('#email').addEventListener('input', ({target:{value}}) => {
-    // create a regex to check if the email is valid
-    const emailRegex = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}$');
-    if(emailRegex.test(value)) {
-        document.querySelector('#emailindicator').classList.remove('hidden');
-        document.querySelector('#emailindicator').classList.remove('fa-asterisk');
-        document.querySelector('#emailindicator').classList.add('fa-check');
-        document.querySelector('#emailindicator').style.color = 'green';
-    }else{
-        document.querySelector('#emailindicator').classList.add('hidden');
-        if(value.length > 0) {
-            document.querySelector('#emailindicator').classList.remove('hidden');
-            document.querySelector('#emailindicator').classList.remove('fa-check');
-            document.querySelector('#emailindicator').classList.add('fa-xmark');
-            document.querySelector('#emailindicator').style.color = 'red';
-        }
-        if(value.includes('@') && value.includes('.')) {
-            document.querySelector('#emailindicator').classList.remove('hidden');
-            document.querySelector('#emailindicator').classList.remove('fa-xmark');
-            document.querySelector('#emailindicator').classList.add('fa-asterisk');
-            document.querySelector('#emailindicator').style.color = 'orange';
-        }
-    }
-});
-
-document.querySelector('#contactNumber').addEventListener('input', ({target:{value}}) => {
-    let val = value.replace(/\-/g, '');
-    console.log(val)
-    if((val.startsWith('09') && val.length === 11) || (val.startsWith('9') && val.length === 10)) {
-        document.querySelector('#contactindicator').classList.remove('hidden');
-        document.querySelector('#contactindicator').classList.add('fa-mobile');
-        document.querySelector('#contactindicator').classList.remove('fa-phone');
-    }else if(val.length === 7 && !val.startsWith('9') && !val.startsWith('09')){
-        document.querySelector('#contactindicator').classList.remove('hidden');
-        document.querySelector('#contactindicator').classList.add('fa-phone');
-        document.querySelector('#contactindicator').classList.remove('fa-mobile');
-    }else{
-        document.querySelector('#contactindicator').classList.add('hidden');
-    }
-});
 
 let cachedContactData = [];
 
@@ -155,6 +99,8 @@ const updateTableData = (data, search = '') => {
         editButton.addEventListener('click', () => {
             editContact(contact);
         });
+        editButton.title = "Edit Contact or View Details";
+
 
         let deleteButton = document.createElement('a');
         deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
@@ -162,16 +108,27 @@ const updateTableData = (data, search = '') => {
         deleteButton.addEventListener('click', () => {
             deleteContact(contact);
         });
+        deleteButton.title = "Delete Contact";
 
         actions.appendChild(editButton);
         actions.appendChild(deleteButton);
 
+        let hiddenCol = document.createElement('td');
+
         let row = document.createElement('tr');
+        row.classList.add('hoverable');
+        row.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('fa-trash'))
+                editContact(contact);
+        });
+
         row.appendChild(name);
         row.appendChild(address);
         row.appendChild(email);
         row.appendChild(contactNumber);
         row.appendChild(actions);
+        row.appendChild(hiddenCol);
+
 
         tableBody.appendChild(row);
     });
@@ -182,14 +139,20 @@ const updateTableData = (data, search = '') => {
 }
 
 const deleteContact = (contact) => {
-    console.log(contact)
-    fetch(`/api/data/DeleteContact/${contact.ID}`, {
-        method: 'DELETE',
-        headers: {
-            'api-key': api_key
-        }
-    }).then(r => r.json()).then(data => { grabAllContacts() });
+    if (confirm(`Delete Contact ${contact.Name}`)) {
+        fetch(`/api/data/DeleteContact/${contact.ID}`, {
+            method: 'DELETE',
+            headers: {
+                'api-key': api_key
+            }
+        }).then(r => r.json()).then(data => { grabAllContacts() });
+    }
     
+    
+}
+
+const editContact = (contact) => {
+    window.location.href = `/detail?id=${contact.ID}`;
 }
 
 
@@ -208,3 +171,120 @@ function capitalizeFirstLetter(string) {
 function downloadCSV() {
     exportCSV(cachedContactData, 'contacts.csv');
 }
+
+
+/*
+UPDATE - IMPORT CONTACTS
+*/
+
+const tempdata = {
+    numberOfFiles: 0,
+    numberOfContacts: 0,
+    numberOfInvalid: 0,
+    datas: []
+}
+
+
+const uploadJSON = () => {
+    document.getElementById('uploadJSONUI').classList.remove('hidden');
+}
+
+document.getElementById('uploadJSONUI').addEventListener('click', function (e) {
+    if (!e.target.classList.contains('btn'))
+        document.getElementById('uploadJSONUI').classList.add('hidden');
+});
+
+
+async function startImport(){
+    let completedCounter = 0;
+    document.getElementById('uploadUIInfo').textContent = `Importing in progress...`;
+
+    fetch('/api/data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'api-key': api_key
+        },
+        body: JSON.stringify(tempdata.datas)
+    }).then(r => r.json()).then(data => {
+        if (data.Status === 200) {
+            document.getElementById('uploadUIInfo').textContent = `Importing completed.`;
+            grabAllContacts();
+        }
+    });
+    for (const contact of tempdata.datas) {
+        /* Call the upload fetch */
+        await sleep(100);
+
+        
+    }
+}
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+
+function incrementTempdataNofC() {
+    tempdata.numberOfContacts++;
+}
+
+function incrementTempdataNoI() {
+    tempdata.numberOfInvalid++;
+}
+
+function pushContactToDatas(contact) {
+    tempdata.datas.push(contact);
+}
+
+function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+    tempdata.numberOfFiles = files.length;
+    tempdata.numberOfContacts = 0;
+    tempdata.numberOfInvalid = 0;
+    tempdata.datas = [];
+
+    for (const file of files) {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+            let p_element = document.createElement('p');
+            p_element.classList.add('hidden');
+            p_element.innerHTML = event.target.result;
+            const data = JSON.parse(p_element.innerText);
+            for (const contact of data) {
+                if (contact.Name !== undefined && contact.Address !== undefined && contact.Email !== undefined && contact.ContactNo !== undefined) {
+                    pushContactToDatas(contact);
+                    incrementTempdataNofC();
+                } else {
+                    incrementTempdataNoI();
+                }
+
+            }
+            p_element.remove();
+        }
+        if (file.type === 'application/json') {
+            reader.readAsText(file);
+        }
+        else
+            alert(`Invalid file type. Please upload a JSON file. [${file.name}]`)
+    }
+
+    setTimeout(() => {
+        document.getElementById('uploadUIInfo').textContent = `Read ${tempdata.numberOfFiles} file(s) containing ${tempdata.numberOfContacts} contact(s). ${tempdata.numberOfInvalid} invalid data.`;
+    }, 100);
+}
+
+function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+// Setup the dnd listeners.
+var dropZone = document.getElementById('drop_zone');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
