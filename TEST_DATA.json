@@ -1,0 +1,51 @@
+[
+    {
+        "Name":"Jayharron Mar Abejar",
+        "Address": "Talisay City, Cebu, Philippines, 6045",
+        "Email": "jayharron@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"James Dylan Caramonte",
+        "Address": "Cebu City, Philippines, 6000",
+        "Email": "dylan@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Harold Cuico",
+        "Address": "Bogo City, Cebu, Philippines",
+        "Email": "hcuico@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Pia Abellana",
+        "Address": "Talisay City, Cebu, Philippines, 6045",
+        "Email": "pia@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Nax Joe",
+        "Address": "Cebu IT Park, Cebu, Philippines",
+        "Email": "naxjoe@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Jonathan Kent",
+        "Address": "Lapu-Lapu, Philippines",
+        "Email": "kent@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Jhon Lorenz",
+        "Address": "Bulacao, Cebu, Philippines",
+        "Email": "lorenz@sample.email",
+        "ContactNo": "09123456789"
+    },
+    {
+        "Name":"Arlo World",
+        "Address": "Mohon, Talisay City, Cebu, Philippines",
+        "Email": "arloworld@sample.email",
+        "ContactNo": "09123456789"
+    }
+
+]

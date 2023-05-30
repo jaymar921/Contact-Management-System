@@ -25,19 +25,19 @@ body {
     top: 0;
 }
 
-    .navigation .title {
-        position: relative;
-        left: 350px;
-    }
+.navigation .title {
+    position: relative;
+    left: 350px;
+}
 
-        .navigation .title h1 {
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            font-size: 36px;
-            color: #481111;
-            padding: 15px 0px 0px 30px;
-            margin: 0;
-        }
+.navigation .title h1 {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #481111;
+    padding: 15px 0px 0px 30px;
+    margin: 0;
+}
 
 .dashboard {
     position: fixed;
@@ -49,57 +49,57 @@ body {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-    .dashboard .logo {
-        position: relative;
-        top: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        text-align: center;
-        font-size: 20px;
-    }
+.dashboard .logo {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+}
 
-        .dashboard .logo img {
-            width: 100%;
-        }
+.dashboard .logo img {
+    width: 100%;
+}
 
-    .dashboard .buttonGroups {
-        position: relative;
-        top: 50px;
-    }
+.dashboard .buttonGroups {
+    position: relative;
+    top: 50px;
+}
 
-        .dashboard .buttonGroups .dashboardButton {
-            position: relative;
-            height: 55px;
-            width: 100%;
-            display: flex;
-            outline: none;
-            border: none;
-        }
+.dashboard .buttonGroups .dashboardButton {
+    position: relative;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    outline: none;
+    border: none;
+}
 
-            .dashboard .buttonGroups .dashboardButton .subgroup {
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 55%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-            }
+.dashboard .buttonGroups .dashboardButton .subgroup {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
-                .dashboard .buttonGroups .dashboardButton .subgroup img {
-                    position: relative;
-                    height: 25px;
-                }
+.dashboard .buttonGroups .dashboardButton .subgroup img {
+    position: relative;
+    height: 25px;
+}
 
-                .dashboard .buttonGroups .dashboardButton .subgroup a {
-                    position: relative;
-                    text-align: left;
-                    font-family: Inter-Bold;
-                    font-size: 24px;
-                    height: 24px;
-                    left: 5px;
-                }
+.dashboard .buttonGroups .dashboardButton .subgroup a {
+    position: relative;
+    text-align: left;
+    font-family: Inter-Bold;
+    font-size: 24px;
+    height: 24px;
+    left: 5px;
+}
 
 .buttonActive {
     background-color: #c9c9c9;
@@ -118,7 +118,7 @@ body {
     position: absolute;
     top: 70px;
     width: calc(100% - 350px);
-    min-width: 1000px;
+    min-width: 1200px;
     left: 350px;
     height: calc(100% - 70px);
 }
@@ -149,9 +149,9 @@ body {
     padding: 0;
 }
 
-    .pageTitle h1 {
-        margin: 0;
-    }
+.pageTitle h1 {
+    margin: 0;
+}
 
 .btnGrey {
     border: none;
@@ -359,11 +359,11 @@ table tbody .hoverable:hover {
     width: 100px;
 }
 
-    .actionCol a {
-        font-family: 'Poppins', sans-serif;
-        font-size: 25px;
-        padding: 10px;
-    }
+.actionCol a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    padding: 10px;
+}
 
 /*
     Splash Screens and Modals
@@ -380,17 +380,17 @@ table tbody .hoverable:hover {
     z-index: 100;
 }
 
-    .splashScreen .innerSplash {
-        position: relative;
-        width: 300px;
-        height: 200px;
-        background-color: white;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+.splashScreen .innerSplash {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .modal {
     position: absolute;
@@ -404,12 +404,12 @@ table tbody .hoverable:hover {
     z-index: 100;
 }
 
-    .modal h1 {
-        font-family: 'Poppins', sans-serif;
-        color: var(--redFontColor);
-        padding: 0;
-        margin: 0;
-    }
+.modal h1 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--redFontColor);
+    padding: 0;
+    margin: 0;
+}
 
 .innerModal {
     position: relative;
@@ -423,39 +423,39 @@ table tbody .hoverable:hover {
     flex-direction: column;
 }
 
-    .innerModal .modalBody {
-        position: relative;
-        width: 450px;
-    }
+.innerModal .modalBody {
+    position: relative;
+    width: 450px;
+}
 
-        .innerModal .modalBody form, form {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-        }
+.innerModal .modalBody form, form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+}
 
-            .innerModal .modalBody form .formGroup, .formGroup {
-                position: relative;
-                width: 100%;
-                margin-top: 10px;
-                display: block;
-                overflow: hidden;
-            }
+.innerModal .modalBody form .formGroup, .formGroup {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    overflow: hidden;
+}
 
 
-                .innerModal .modalBody form .formGroup input, .formGroup input {
-                    position: relative;
-                    width: 450px;
-                    align-items: center;
-                    font-family: 'Poppins', sans-serif;
-                    font-size: 24px;
-                    padding: 5px;
-                    border: none;
-                    background-color: #D9D9D9;
-                    outline: none;
-                }
+.innerModal .modalBody form .formGroup input, .formGroup input {
+    position: relative;
+    width: 450px;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    padding: 5px;
+    border: none;
+    background-color: #D9D9D9;
+    outline: none;
+}
 
 .form-container {
     position: relative;
@@ -466,32 +466,32 @@ table tbody .hoverable:hover {
     justify-content: center;
 }
 
-    .form-container .pageTitle h1 {
-        text-align: center;
-        margin-top: 25px;
-    }
+.form-container .pageTitle h1 {
+    text-align: center;
+    margin-top: 25px;
+}
 
-    .form-container form {
-        position: relative;
-        width: 80%;
-        height: 100%;
-        display: block;
-        align-items: center;
-        justify-content: center;
-        left: 50%;
-        margin-top: 20px;
-        margin-bottom: 50px;
-        transform: translateX(-50%);
-    }
+.form-container form {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    transform: translateX(-50%);
+}
 
-        .form-container form .formGroup input {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: block;
-            align-items: center;
-            justify-content: center;
-        }
+.form-container form .formGroup input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
 
 #map {
     height: 200px;
@@ -510,9 +510,9 @@ table tbody .hoverable:hover {
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
-    .uploadUI h1 {
-        padding: 20px;
-    }
+.uploadUI h1 {
+    padding: 20px;
+}
 
 .uploadDropBox {
     position: relative;
@@ -526,12 +526,12 @@ table tbody .hoverable:hover {
     transform: translateX(-50%);
 }
 
-    .uploadDropBox p {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-    }
+.uploadDropBox p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
 
 /*
     UTILS

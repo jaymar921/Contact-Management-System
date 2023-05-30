@@ -17,12 +17,10 @@ namespace Contact_Management_System.Controllers
             this.dataRepository = dataRepository;
         }
 
+        /*
+         * Returns the index view / home page
+         */
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
@@ -33,6 +31,10 @@ namespace Contact_Management_System.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        /*
+         * This method will accept a ContactModel as parameter,
+         * registers a new contact information in the database then redirects back to the home page
+         */
         [HttpPost]
         [Route("AddContact")]
         public IActionResult AddContact(ContactModel model)
