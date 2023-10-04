@@ -14,7 +14,7 @@ namespace Contact_Management_System.Data
             //_context.Database.ExecuteSqlRaw("DELETE FROM Contacts");
 
             // create the contact table
-            _context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS Contacts (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Email TEXT NOT NULL, Address TEXT NOT NULL, ContactNo TEXT NOT NULL)");
+            //_context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS Contacts (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Email TEXT NOT NULL, Address TEXT NOT NULL, ContactNo TEXT NOT NULL)");
         }
 
         // create a method named 'AddEntry' that accepts a Contact object as a parameter, save the contact int the database and return the ID of the contact

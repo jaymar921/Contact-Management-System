@@ -3,6 +3,8 @@ using Contact_Management_System.Data;
 // import the EntityFrameworkCore
 using Microsoft.EntityFrameworkCore;
 
+using ReportBuilder.Web.Jobs;
+using ReportBuilder.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,13 +20,16 @@ builder.Services.AddCors(options =>
 });
 
 // Add a DBContext into the builder service that use and option to UseSqlite and point to the database file named SimpleContactManagementSystem
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=SimpleContactManagementSystem"));
+builder.//Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=SimpleContactManagementSystem"));
+    Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Add the DataRepository into the builder service as a scoped service
 builder.Services.AddScoped<DataRepository>();
-
+// 14:53
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+Startup.StaticConfig = builder.Configuration; //<--- Add this line manually
+JobScheduler.Start(); //<--- Add this line manually if you want to run scheduled jobs from your app
 
 var app = builder.Build();
 
@@ -50,5 +55,4 @@ app.UseAuthorization();
 app.MapControllerRoute(
        name: "default",
           pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

@@ -25,6 +25,14 @@ namespace Contact_Management_System.Controllers
             return View();
         }
 
+        // create a method that returns an IFrame.cshtml view
+
+
+        public IActionResult IFrame()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

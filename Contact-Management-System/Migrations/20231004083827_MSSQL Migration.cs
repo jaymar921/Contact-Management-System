@@ -5,7 +5,7 @@
 namespace Contact_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class MSSQLMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,12 +14,12 @@ namespace Contact_Management_System.Migrations
                 name: "Contacts",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false),
-                    ContactNo = table.Column<string>(type: "TEXT", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactNo = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
